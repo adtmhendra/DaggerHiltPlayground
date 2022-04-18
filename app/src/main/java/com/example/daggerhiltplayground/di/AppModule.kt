@@ -1,4 +1,4 @@
-package com.example.daggerhiltplayground.module
+package com.example.daggerhiltplayground.di
 
 import android.content.Context
 import com.example.daggerhiltplayground.Engine

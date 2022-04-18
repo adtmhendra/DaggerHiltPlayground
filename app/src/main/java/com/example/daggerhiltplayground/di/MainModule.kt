@@ -1,4 +1,4 @@
-package com.example.daggerhiltplayground.module
+package com.example.daggerhiltplayground.di
 
 // @Module
 // @InstallIn(ActivityComponent::class) // Module akan dijalankan di Activity lifecycle scope

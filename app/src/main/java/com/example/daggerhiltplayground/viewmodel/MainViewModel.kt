@@ -1,4 +1,4 @@
-package com.example.daggerhiltplayground.module
+package com.example.daggerhiltplayground.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.daggerhiltplayground.Engine

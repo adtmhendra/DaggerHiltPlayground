@@ -1,9 +1,11 @@
-package com.example.daggerhiltplayground
+package com.example.daggerhiltplayground.view
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.daggerhiltplayground.module.MainViewModel
+import com.example.daggerhiltplayground.Engine
+import com.example.daggerhiltplayground.R
+import com.example.daggerhiltplayground.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Named
