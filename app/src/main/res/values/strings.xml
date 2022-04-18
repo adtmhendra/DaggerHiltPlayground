@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Dagger Hilt Playground</string>
+    <string name="engine_stopped">Engine stopped</string>
+</resources>
