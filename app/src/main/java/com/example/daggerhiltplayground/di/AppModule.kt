@@ -2,11 +2,16 @@ package com.example.daggerhiltplayground.di
 
 import android.content.Context
 import com.example.daggerhiltplayground.Engine
+import com.example.daggerhiltplayground.network.ApiService
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -51,4 +56,31 @@ object AppModule {
     @Named("string2")
     fun provideString2(): String = "Ini adalah string kedua yang akan diinject"
 
+    @Singleton
+    @Provides
+    @Named("moshi")
+    fun provideMoshi(): Moshi {
+        return Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+    }
+
+    @Singleton
+    @Provides
+    @Named("retrofit")
+    fun provideRetrofit(
+        @Named("moshi") moshi: Moshi,
+    ): Retrofit {
+        return Retrofit.Builder().apply {
+            baseUrl(ApiService.BASE_URL)
+            addConverterFactory(MoshiConverterFactory.create(moshi))
+        }.build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideApi(
+        @Named("retrofit") retrofit: Retrofit,
+    ): ApiService {
+        val rawgApiService: ApiService by lazy { retrofit.create(ApiService::class.java) }
+        return rawgApiService
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.daggerhiltplayground.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.daggerhiltplayground.Engine
@@ -37,6 +38,10 @@ class MainActivity : AppCompatActivity() {
         println(injectedString2) // Ini adalah string kedua yang akan diinject
 
         viewModel.stopEngine() // Engine stopped by Hendra Pratik Aditama
+
+        viewModel.listData.observe(this) {
+            Log.d("RawgViewModelFromActivity", it.toString())
+        }
 
         /*
             Normal way :
