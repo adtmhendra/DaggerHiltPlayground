@@ -1,9 +1,8 @@
 # DaggerHiltPlayground
 
 <pre>
-
 build.gradle(:app)
-    Dependency :
+  Dependency :
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:2.41"
     kapt "com.google.dagger:hilt-android-compiler:2.41"
@@ -15,7 +14,7 @@ build.gradle(:app)
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
-    Plugins :
+  Plugins :
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 
